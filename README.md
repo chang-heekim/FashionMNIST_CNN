@@ -37,6 +37,7 @@
  | Fully_connected_2     | number of nutron: 10                                              |
  | Softmax               | 10 classes                                                        |
  
+  <b>Implementation</b>
  <pre>
  class LeNet(nn.Module):
     def __init__(self):
@@ -69,6 +70,7 @@
         return out
 
 </pre>
+
 ## AlexNet for FashionMNIST
  | Layer                 | Specification                                                     | 
  | :---------------------| :-----------------------------------------------------------------|
@@ -93,7 +95,8 @@
  | Dropout_18            | dropout_prob: 0.5                                                 |
  | Fully_connected_2     | number of nutron: 10                                              |
  | Softmax               | 10 classes                                                        |
- 
+  
+  <b>Implementation</b>
  <pre>
  class AlexNet(nn.Module):
     def __init__(self):
