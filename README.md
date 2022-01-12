@@ -3,9 +3,9 @@
   - use LeNet-5, AlexNet for FashionMNist Dataset
  
 # FashionMNIST Dataset
-  - Train Datasets : 54000
-  - Validation Datasets: 6000
-  - Test Datasets: 10000
+  - number of Train Datasets : 54000
+  - number of Validation Datasets: 6000
+  - number of Test Datasets: 10000
   
   - 10 classes
     - 0: 'T-shirt/top',
