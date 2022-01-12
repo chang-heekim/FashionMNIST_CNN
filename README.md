@@ -1,6 +1,7 @@
 # FashionMNIST_CNN
   - learning/validation was conducted using Google Colab.
   - use LeNet-5, AlexNet for FashionMNist Dataset
+  - Optimizer: Adam, Learning_rate: 0.001
  
 ## FashionMNIST Dataset
   - number of Train Datasets : 54000
@@ -150,3 +151,6 @@
    - Validation Accuracy
    <img src='https://github.com/chang-heekim/FashionMNIST_CNN/blob/main/images/Accuracy_Val.png'/>
     
+## Test Accuracy about LeNet-5, AlexNet
+   - Test Accuracy for LeNet-5: 88.3%
+   - Test Accuracy for AlexNet: 91.41%
