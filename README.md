@@ -67,3 +67,64 @@
 
         out = self.classifier(x)
         return out
+
+
+## AlexNet for FashionMNIST
+ | Layer                 | Specification                                                     | 
+ | :---------------------| :-----------------------------------------------------------------|
+ | Input                 | Channel: 1, Image size: 28 x 28                                   |
+ | Convlayer_1           | Channel: 96, kernel_size: 5 x 5, stride: 1, padding: 2            |
+ | Activation_2          | ReLU                                                              |
+ | MaxPooling_3          | Kernel_size: 3 x 3, stride: 2                                     |
+ | LocalResponseNorm_4   | size: 5, alpha: 0.0001, beta: 0.75, k: 2                          |
+ | Convlayer_5           | Channel: 256, kernel_size: 5 x 5, stride: 1, padding: 2           |
+ | Activation_6          | ReLU                                                              |
+ | MaxPooling_7          | Kernel_size: 3 x 3, stride: 2                                     |
+ | LocalResponseNorm_8   | size: 5, alpha: 0.0001, beta: 0.75, k: 2                          |
+ | Convlayer_9           | Channel: 384, kernel_size: 3 x 3, stride: 1, padding: 1           |
+ | Activation_10         | ReLU                                                              |
+ | Convlayer_11          | Channel: 384, kernel_size: 3 x 3, stride: 1, padding: 1           |
+ | Activation_12         | ReLU                                                              |
+ | Convlayer_13          | Channel: 256, kernel_size: 3 x 3, stride: 1, padding: 1           |
+ | Activation_14         | ReLU                                                              |
+ | MaxPooling_15         | Kernel_size: 3 x 3, stride: 2                                     |
+ | Fully_connected_16    | number of neuron: 4096                                            |
+ | Activation_17         | ReLU                                                              |
+ | Dropout_18            | dropout_prob: 0.5                                                 |
+ | Fully_connected_2     | number of nutron: 10                                              |
+ | Softmax               | 10 classes                                                        |
+ 
+ <pre>
+ class AlexNet(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.feature_extractor = nn.Sequential(
+            nn.Conv2d(1, 96, 5, 1, 2),       # B x 96 x 28 x 28  
+            nn.ReLU(),
+            nn.MaxPool2d(3, 2),             # B x 96 x 13 x 13
+            nn.LocalResponseNorm(size=5, alpha=1e-4, beta=0.75, k=2),
+            nn.Conv2d(96, 256, 5, 1, 2),    # B x 256 x 13 x 13
+            nn.ReLU(),
+            nn.MaxPool2d(3, 2),             # B x 256 x 6 x 6
+            nn.LocalResponseNorm(size=5, alpha=1e-4, beta=0.75, k=2),
+            nn.Conv2d(256, 384, 3, 1, 1),   # B x 384 x 6 x 6
+            nn.ReLU(),
+            nn.Conv2d(384, 384, 3, 1, 1),   # B x 384 x 6 x 6
+            nn.ReLU(),
+            nn.Conv2d(384, 256, 3, 1, 1),   # B x 384 x 6 x 6
+            nn.ReLU(),
+            nn.MaxPool2d(3, 2)              # B x 256 x 2 x 2
+        )
+        self.classifier = nn.Sequential(
+            nn.Linear(256*2*2, 4096),
+            nn.ReLU(),
+            nn.Dropout(0.5),
+            nn.Linear(4096, 10),
+        )
+
+    def forward(self, input):
+        x = self.feature_extractor(input)
+        x = x.view(x.size(0), -1)
+
+        out = self.classifier(x)
+        return out
