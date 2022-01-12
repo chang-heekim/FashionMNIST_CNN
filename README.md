@@ -68,7 +68,7 @@
         out = self.classifier(x)
         return out
 
-
+</pre>
 ## AlexNet for FashionMNIST
  | Layer                 | Specification                                                     | 
  | :---------------------| :-----------------------------------------------------------------|
@@ -128,3 +128,4 @@
 
         out = self.classifier(x)
         return out
+</pre>
