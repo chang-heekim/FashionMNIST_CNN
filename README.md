@@ -133,3 +133,6 @@
             out = self.classifier(x)
             return out
     </pre>
+    
+ ## Loss about LeNet-5, AlexNet
+ <img src=''/>
