@@ -2,7 +2,7 @@
   - learning/validation was conducted using Google Colab.
   - use LeNet-5, AlexNet for FashionMNist Dataset
  
-# FashionMNIST Dataset
+## FashionMNIST Dataset
   - number of Train Datasets : 54000
   - number of Validation Datasets: 6000
   - number of Test Datasets: 10000
@@ -20,4 +20,5 @@
     - 9: 'Ankle boot' 
     - <img src='https://github.com/chang-heekim/FashionMNIST_CNN/blob/main/images/image.png'/>
 
-
+## LeNet-5 for FashionMNIST
+  
