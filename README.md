@@ -135,18 +135,18 @@
     </pre>
     
  ## Loss and Accuracy about LeNet-5, AlexNet
-    - Train Loss
+   - Train Loss
    <img src='https://github.com/chang-heekim/FashionMNIST_CNN/blob/main/images/Loss_Train.png'/>
  
  
-    - Validation Loss
+   - Validation Loss
    <img src='https://github.com/chang-heekim/FashionMNIST_CNN/blob/main/images/Loss_Val.png'/>
     
     
-    - Train Accuracy
+   - Train Accuracy
    <img src='https://github.com/chang-heekim/FashionMNIST_CNN/blob/main/images/Accuracy_Train.png'/>
     
     
-    - Validation Accuracy
+   - Validation Accuracy
    <img src='https://github.com/chang-heekim/FashionMNIST_CNN/blob/main/images/Accuracy_Val.png'/>
     
