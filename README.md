@@ -70,7 +70,7 @@
         return out
 
 </pre>
-
+&nbsp
 ## AlexNet for FashionMNIST
  | Layer                 | Specification                                                     | 
  | :---------------------| :-----------------------------------------------------------------|
