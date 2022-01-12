@@ -36,3 +36,34 @@
  | Activation            | Tanh                                                              |
  | Fully_connected_2     | number of nutron: 10                                              |
  | Softmax               | 10 classes                                                        |
+ 
+ <pre>
+ class LeNet(nn.Module):
+    def __init__(self):
+        super().__init__()
+        # Input = B x 1 x 32 x 32
+        self.feature_extractor = nn.Sequential(
+            nn.Conv2d(1, 6, 5, 1),      # B x 6 x 24 x 24   
+            nn.Tanh(),
+            nn.AvgPool2d(2),            # B x 6 x 12 x 12   
+            
+            nn.Conv2d(6, 16, 5, 1),     # B x 16 x 8 x 8   
+            nn.Tanh(),
+            nn.AvgPool2d(2),            # B x 16 x 4 x 4     
+
+            nn.Conv2d(16, 120, 4, 1),   # B x 120 x 1 x 1 
+            nn.Tanh()
+        )
+
+        self.classifier = nn.Sequential(
+            nn.Linear(in_features=120, out_features=84),
+            nn.Tanh(),
+            nn.Linear(in_features=84, out_features=10)
+        )
+
+    def forward(self, input):
+        x = self.feature_extractor(input)
+        x = x.view(x.size(0), -1)
+
+        out = self.classifier(x)
+        return out
