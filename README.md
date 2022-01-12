@@ -14,5 +14,4 @@
     - 7: 'Sneaker',
     - 8: 'Bag',
     - 9: 'Ankle boot'
-
     - <img src='https://github.com/chang-heekim/FashionMNIST_CNN/blob/main/images/image.png'/>
